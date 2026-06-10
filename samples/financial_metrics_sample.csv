@@ -1,0 +1,2 @@
+ticker,fiscal_year,period_type,period_end,revenue,revenue_yoy_pct,gross_profit,operating_profit,net_profit,net_profit_yoy_pct,total_assets,total_liabilities,total_equity,total_debt,der,operating_cash_flow,gross_margin_pct,operating_margin_pct,net_margin_pct,source_document_id,is_confirmed
+ABCD,2026,q1,2026-03-31,1000000000,25.00,400000000,200000000,120000000,35.00,5000000000,1500000000,3500000000,900000000,0.26,180000000,40.00,20.00,12.00,1,1

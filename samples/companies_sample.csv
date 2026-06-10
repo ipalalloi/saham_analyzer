@@ -1,0 +1,2 @@
+ticker,name,sector,subsector,is_idx30,is_special_der_sector,is_long_suspended,financial_report_complete,last_review_notes
+ABCD,PT Contoh Emiten Tbk,Technology,Software,0,0,0,1,Contoh data dummy untuk format CSV saja
