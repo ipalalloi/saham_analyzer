@@ -2,7 +2,7 @@
 Aplikasi PHP &amp; MySQL untuk screening dan analisa saham BEI berbasis siklus, evidence, dan decision gate profesional.
 # SAHAM Audit-Ready Analyzer
 
-Aplikasi PHPâ€“MySQL untuk screening dan analisa saham BEI berbasis siklus, evidence, dan decision gate profesional.
+Aplikasi PHP & MySQL untuk screening dan analisa saham BEI berbasis siklus, evidence, dan decision gate profesional.
 
 ## Prinsip Utama
 
