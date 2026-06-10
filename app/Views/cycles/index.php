@@ -1,0 +1,13 @@
+<div class="page-title"><div><h1>Siklus Analisis</h1><p class="muted">Satu eksekusi prompt = satu siklus analisis penuh. Hasil siklus bersifat final untuk periode tersebut.</p></div><button class="btn" data-modal-open="#cycleModal">Tambah Siklus</button></div>
+<section class="card"><div class="table-wrap"><table><thead><tr><th>Kode</th><th>Periode</th><th>Status</th><th>Dibuat Oleh</th><th>Catatan</th><th>Aksi</th></tr></thead><tbody>
+<?php foreach($cycles as $c): $json=e(json_encode($c,JSON_UNESCAPED_UNICODE)); ?>
+<tr><td><strong><?= e($c['cycle_code']) ?></strong></td><td><?= e($c['period_start']) ?> — <?= e($c['period_end']) ?></td><td><?= badge($c['status']) ?></td><td><?= e($c['created_name']) ?></td><td><?= e($c['notes']) ?></td><td class="nowrap"><button class="btn small ghost" data-row='<?= $json ?>' onclick="fillCycleForm(this)">Edit</button> <a class="btn small" href="<?= url('screening',['cycle_id'=>$c['id']]) ?>">Screening</a> <a class="btn small secondary" href="<?= url('memos',['cycle_id'=>$c['id']]) ?>">Memo</a><?php if($c['status']!=='finalized'): ?><form method="post" action="<?= url('cycle.finalize') ?>" style="display:inline"><?= Csrf::input() ?><input type="hidden" name="id" value="<?= e($c['id']) ?>"><button class="btn small danger" onclick="return confirm('Finalisasi siklus?')">Final</button></form><?php endif; ?></td></tr>
+<?php endforeach; ?><?php if(!$cycles): ?><tr><td colspan="6" class="muted">Belum ada siklus.</td></tr><?php endif; ?>
+</tbody></table></div></section>
+<div class="modal" id="cycleModal"><div class="modal-dialog"><div class="modal-head"><h2>Form Siklus</h2><button class="close" data-modal-close>×</button></div>
+<form method="post" action="<?= url('cycle.save') ?>"><?= Csrf::input() ?><input type="hidden" name="id"><div class="form-grid">
+<div class="field"><label>Kode Siklus</label><input name="cycle_code" required placeholder="CYCLE-2026-Q2-WEEK23"></div>
+<div class="field"><label>Status</label><select name="status"><option value="draft">draft</option><option value="running">running</option><option value="finalized">finalized</option><option value="archived">archived</option></select></div>
+<div class="field"><label>Periode Mulai</label><input type="date" name="period_start" required></div><div class="field"><label>Periode Akhir</label><input type="date" name="period_end" required></div>
+<div class="field"><label>ID Siklus Sebelumnya</label><input name="previous_cycle_id" type="number" placeholder="opsional"></div>
+<div class="field full"><label>Catatan</label><textarea name="notes"></textarea></div></div><div class="actions"><button class="btn">Simpan</button></div></form></div></div>
